@@ -17,8 +17,17 @@
             <td>{{ post.title }}</td>
             <td>{{ post.content }}</td>
             <td class="buttons">
-              <RouterLink :to="{ path: 'postedit/' + post.id }" class="button b-primary">Editar</RouterLink>
-              <button @click="deletePost(post.id, post.title)" class="button b-secondary">Eliminar</button>
+              <RouterLink
+                :to="{ path: 'postedit/' + post.id }"
+                class="button b-primary"
+                >Editar</RouterLink
+              >
+              <button
+                @click="deletePost(post.id, post.title)"
+                class="button b-secondary"
+              >
+                Eliminar
+              </button>
             </td>
           </tr>
         </tbody>
@@ -28,27 +37,25 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { RouterLink } from 'vue-router';
+import axios from "axios";
+import { RouterLink } from "vue-router";
 
 export default {
   data() {
     return {
-      posts: []
+      posts: [],
     };
   },
   mounted() {
     this.fetchPosts();
   },
   methods: {
-
     async fetchPosts() {
       try {
-        const response = await axios.get('http://localhost:3000/posts');
+        const response = await axios.get("http://localhost:3000/posts");
         this.posts = response.data;
-      }
-      catch (error) {
-        console.error('Error al cargar los datos de la api', error);
+      } catch (error) {
+        console.error("Error al cargar los datos de la api", error);
       }
     },
 
@@ -58,17 +65,15 @@ export default {
       );
       if (confirmDelete) {
         try {
-          await axios.delete(`http://localhost:3000/posts/${id}`)
+          await axios.delete(`http://localhost:3000/posts/${id}`);
           this.fetchPosts();
         } catch (error) {
-          console.error('Error al eliminar post:', error);
+          console.error("Error al eliminar post:", error);
         }
       }
     },
   },
-  components: { RouterLink }
-}
-
+};
 </script>
 
 <style scoped>

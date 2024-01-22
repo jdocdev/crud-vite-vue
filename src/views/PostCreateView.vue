@@ -52,44 +52,43 @@ export default {
 </script>
 
 <style scoped>
-
 form {
     .input_container {
         display: flex;
         flex-direction: column;
         margin-bottom: 1rem;
-        
-        label{
+
+        label {
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
 
-        input, textarea {
+        input,
+        textarea {
             font-size: 1rem;
             padding: 0.5rem;
         }
-        
+
     }
 
     .button {
-          text-decoration: none;
-          border: none;
-          font-size: 1rem;
-          cursor: pointer;
-          padding: 0.5rem;
-          border-radius: 5px;
-          transition: background-color ease-in-out 0.3s;
-          width: 100%;
-        }
+        text-decoration: none;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 5px;
+        transition: background-color ease-in-out 0.3s;
+        width: 100%;
+    }
 
-        .b-primary {
-          background-color: #759eff;
-          color: #fff;
+    .b-primary {
+        background-color: #759eff;
+        color: #fff;
 
-          &:hover {
+        &:hover {
             background-color: #668be2;
-          }
         }
+    }
 }
-
 </style>
